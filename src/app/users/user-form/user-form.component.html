@@ -1,0 +1,53 @@
+<div class="row">
+  <form materialize class="col s12" [formGroup]="form" (ngSubmit)="save()">
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="nome" type="text" class="validate"
+               [(ngModel)]="user.nome" formControlName="nome"
+               [class.invalid]="form.controls['nome'].touched && !form.controls['nome'].valid"
+        >
+        <label for="nome"
+               [class.active]="user.nome"
+               data-error="Name is required and needs to contain at least 3 chars">
+          Nome
+        </label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="email" type="email" class="validate"
+               [(ngModel)]="user.email" formControlName="email"
+               [class.invalid]="form.controls['email'].touched && !form.controls['email'].valid">
+        <label for="email"
+               [class.active]="user.email"
+               data-error="Invalid Email">
+          Email
+        </label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="cpf" class="validate"
+               [(ngModel)]="user.cpf" formControlName="cpf"
+               [class.invalid]="form.controls['cpf'].touched && !form.controls['cpf'].valid">
+        <label for="cpf"
+               [class.active]="user.cpf"
+               data-error="Invalid cpf">
+          CPF
+        </label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="phone" type="text" class="validate"
+               [(ngModel)]="user.phone" formControlName="phone">
+        <label for="phone" [class.active]="user.phone">Telefone</label>
+      </div>
+    </div>
+    <button class="btn waves-effect waves-light" type="submit"
+            [disabled]="!form.valid">
+      Cadastrar
+    </button>
+    <a href="javascript:void()" routerLink="/users" routerLinkActive="active">Listar usuarios</a>
+  </form>
+</div>
